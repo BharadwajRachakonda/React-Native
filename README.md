@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -77,3 +77,75 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+# React Native
+
+## Issues
+
+- Create a new react-native app `npx react-native init {app_name}`
+
+- `npx react-native run-android` or `npx react-native start`
+
+- on errors `npx react-native doctor` or `npm install`
+
+- see list of connected divices `adb devices`
+
+## Content
+
+### Basic components:
+
+- View:
+
+  > The View component is used like a _div_ tag it can be used to wrap other components **But not text**
+
+- Text:
+
+  > Just like the _p_ tag it is used to wrap text
+
+- SafeAreaView:
+
+  > SafeAreaView is used to avoid the notch and the bottom bar of the phone
+
+- StyleSheet:
+
+  > StyleSheet is used to create styles for the components. It helps in organizing and reusing styles.
+
+  ```javascript
+  import React from 'react';
+  import {
+    View,
+    Text,
+    SafeAreaView,
+    StyleSheet,
+    useColorScheme,
+  } from 'react-native';
+
+  function App(): JSX.Element {
+    const isDarkMode = useColorScheme() === 'light';
+    return (
+      <View
+        style={[
+          styles.container,
+          {backgroundColor: isDarkMode ? 'black' : 'white'},
+        ]}>
+        <Text style={isDarkMode ? styles.dark : styles.white}>Hello World</Text>
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    white: {
+      color: 'black',
+    },
+    dark: {
+      color: 'white',
+    },
+  });
+
+  export default App;
+  ```
