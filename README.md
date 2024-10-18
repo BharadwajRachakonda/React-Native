@@ -80,6 +80,14 @@ To learn more about React Native, take a look at the following resources:
 
 # React Native
 
+### Shortcust's with ES7 react-native
+
+- **rnfe** _function export component_
+
+- **rnfs** _function export component with stylesheets_
+
+- _Shift + R for hard reload_
+
 ## Day - 1
 
 ## Issues
@@ -167,3 +175,21 @@ Hello World
 Card's, Styling, Scrolling, Flex
 
 ## Content
+
+- ScrollView:
+
+  > The ScrollView is a generic scrolling container that can contain multiple components and views. The scrollable items can be heterogeneous, and you can scroll both vertically and horizontally (by setting the horizontal property).
+
+`Note: Importing component's is simillar to that of react.`
+
+- \<ScrollView> vs \<FlatList> - which one to use?
+
+  > ScrollView renders all its react child components at once, but this has a performance downside.
+
+  > Imagine you have a very long list of items you want to display, maybe several screens worth of content. Creating JS components and native views for everything all at once, much of which may not even be shown, will contribute to slow rendering and increased memory usage.
+
+  > This is where FlatList comes into play. FlatList renders items lazily, when they are about to appear, and removes items that scroll way off screen to save memory and processing time.
+
+- Image:
+
+  > A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
