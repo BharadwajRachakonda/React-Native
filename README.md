@@ -80,6 +80,8 @@ To learn more about React Native, take a look at the following resources:
 
 # React Native
 
+## Day - 1
+
 ## Issues
 
 - Create a new react-native app `npx react-native init {app_name}`
@@ -89,6 +91,10 @@ To learn more about React Native, take a look at the following resources:
 - on errors `npx react-native doctor` or `npm install`
 
 - see list of connected divices `adb devices`
+
+## Cncept
+
+Hello World
 
 ## Content
 
@@ -109,6 +115,10 @@ To learn more about React Native, take a look at the following resources:
 - StyleSheet:
 
   > StyleSheet is used to create styles for the components. It helps in organizing and reusing styles.
+
+- useColorScheme:
+
+  > The useColorScheme React hook provides and subscribes to color scheme updates from the Appearance module. The return value indicates the current user preferred color scheme. The value may be updated later, either through direct user action (e.g. theme selection in device settings) or on a schedule (e.g. light and dark themes that follow the day/night cycle).
 
   ```javascript
   import React from 'react';
@@ -149,3 +159,11 @@ To learn more about React Native, take a look at the following resources:
 
   export default App;
   ```
+
+## Day - 2
+
+## Concept
+
+Card's, Styling, Scrolling, Flex
+
+## Content

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'light';
+  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View
       style={[
