@@ -193,3 +193,258 @@ Card's, Styling, Scrolling, Flex
 - Image:
 
   > A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
+
+- Linking:
+
+  > Linking is used to open an URL the anchor tag dosent work in React Native hence `Linking.openURL({url})` is used.
+
+- TouchableOpacity:
+
+  > TouchableOpacity help's to provide a action on touch it has a prop `onPress` that can be used to perform an action when the component is clicked.
+
+```javascript
+// App.tsx
+
+import {View, Text, SafeAreaView, ScrollView} from 'react-native';
+import React from 'react';
+import FlatCard from './components/FlatCard';
+import Scrollable from './components/Scrollable';
+import HorizontalLine from './components/HorizontalLine';
+import ImageCard from './components/ImageCard';
+import ActionCard from './components/ActionCard';
+
+const App = () => {
+  return (
+    <SafeAreaView>
+      <ScrollView>
+        <FlatCard />
+        <HorizontalLine />
+        <Scrollable />
+        <HorizontalLine />
+        <ImageCard />
+        <HorizontalLine />
+        <ActionCard />
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default App;
+
+
+// components/ActionCard.tsx
+
+import {Linking, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React from 'react';
+
+const ActionCard = () => {
+  function openWebsite(websiteLink: string) {
+    Linking.openURL(websiteLink);
+  }
+  return (
+    <View>
+      <Text style={styles.headingText}>ActionCard</Text>
+      <TouchableOpacity
+        onPress={() => openWebsite('https://reactnative.dev')}
+        style={styles.container}>
+        <Text style={styles.blackText}>React Native</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default ActionCard;
+
+const styles = StyleSheet.create({
+  headingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    padding: 10,
+    margin: 10,
+    marginHorizontal: 100,
+    borderRadius: 10,
+  },
+  blackText: {
+    color: 'black',
+  },
+});
+
+
+// components/FlatCard.tsx
+
+import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+
+export default function FlatCard(): JSX.Element {
+  return (
+    <View>
+      <Text style={styles.headingText}>FlatCard</Text>
+      <View style={styles.flexContainer}>
+        <View style={[styles.card, styles.cardOne]}>
+          <Text>Card 1</Text>
+        </View>
+        <View style={[styles.card, styles.cardTwo]}>
+          <Text>Card 2</Text>
+        </View>
+        <View style={[styles.card, styles.cardThree]}>
+          <Text>Card 3</Text>
+        </View>
+        <View style={[styles.card, styles.cardThree]}>
+          <Text>Card 3</Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  flexContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around',
+    margin: 20,
+  },
+  headingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  card: {
+    width: 100,
+    height: 100,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    margin: 10,
+  },
+  cardOne: {
+    backgroundColor: 'red',
+  },
+  cardTwo: {
+    backgroundColor: 'blue',
+  },
+  cardThree: {
+    backgroundColor: 'green',
+  },
+});
+
+
+// components/ImageCard.tsx
+
+import {View, Text, Image, SafeAreaView, StyleSheet} from 'react-native';
+import React from 'react';
+
+const ImageCard = () => {
+  return (
+    <SafeAreaView>
+      <Text style={styles.headingText}>ImageCard</Text>
+      <View style={styles.container}>
+        <Image
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
+          }}
+          height={100}
+          width={100}
+          style={{borderRadius: 10}}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  headingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 20,
+  },
+});
+
+export default ImageCard;
+
+
+// components/Scrollable.txt
+
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+
+export default function Scrollable() {
+  return (
+    <View>
+      <Text style={styles.headingText}>ScrollableCard</Text>
+      <View style={styles.flexContainer}>
+        <ScrollView horizontal={true}>
+          <View style={[styles.card, styles.cardOne]}>
+            <Text>Card 1</Text>
+          </View>
+          <View style={[styles.card, styles.cardTwo]}>
+            <Text>Card 2</Text>
+          </View>
+          <View style={[styles.card, styles.cardThree]}>
+            <Text>Card 3</Text>
+          </View>
+          <View style={[styles.card, styles.cardThree]}>
+            <Text>Card 3</Text>
+          </View>
+        </ScrollView>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  flexContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    justifyContent: 'space-around',
+    margin: 20,
+  },
+  headingText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  card: {
+    width: 100,
+    height: 100,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+    margin: 10,
+  },
+  cardOne: {
+    backgroundColor: 'red',
+  },
+  cardTwo: {
+    backgroundColor: 'blue',
+  },
+  cardThree: {
+    backgroundColor: 'green',
+  },
+});
+
+
+```
